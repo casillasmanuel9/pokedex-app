@@ -1,3 +1,4 @@
 export const typesPokedex = {
-    setPokemon: '[pokedex setPokemon]'
+    setPokemon: '[pokedex] setPokemon',
+    loadingPokemons: '[pokedex] loadingPokemons'
 }

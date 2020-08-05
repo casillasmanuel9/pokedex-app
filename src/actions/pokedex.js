@@ -7,10 +7,12 @@ import { getPokemonsFetch } from '../helpers/getPokemonsFetch'
  * @param {number} offset inicio del arreglo paginado 
  * @param {number} limit limite del arreglo paginado
  */
-export const getPokemons = (offset, limit) => {
+export const getPokemons = (offset) => {
     return (dispatch) => {
-        getPokemonsFetch(offset, limit).then(pokemons => {
-            dispatch( setPokemons(pokemons) );
+        dispatch( loadingPokemons() );
+        getPokemonsFetch(offset).then(pokemonsResp => {
+            const { count, pokemons } = pokemonsResp;
+            dispatch( setPokemons( count, pokemons) );
         });
     }
 }
@@ -19,9 +21,14 @@ export const getPokemons = (offset, limit) => {
  * 
  * @param {arreglo de pokemones} pokemons 
  */
-export const setPokemons = ( pokemons ) => ({
+export const setPokemons = ( count, pokemons ) => ({
     type: typesPokedex.setPokemon,
     payload: {
+        count,
         pokemons
     }
+});
+
+const loadingPokemons = ( ) => ({
+    type: typesPokedex.loadingPokemons
 });

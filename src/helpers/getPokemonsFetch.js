@@ -1,9 +1,9 @@
 
-export const getPokemonsFetch = async ( offset, limit ) => {
+export const getPokemonsFetch = async ( offset, limit = 20) => {
   const urlPokemons = `https://pokeapi.co/api/v2/pokemon/?offset=${offset}&limit=${limit}`;
   const respPokemons = await fetch( urlPokemons );
 
-  const { results } = await respPokemons.json();
+  const { results, count } = await respPokemons.json();
 
   const pokemons = results.map( async ( pokemon ) => {
     const urlPokemon = pokemon.url;
@@ -21,5 +21,8 @@ export const getPokemonsFetch = async ( offset, limit ) => {
     }
   });
 
-  return await Promise.all( pokemons );
+  return ({
+    count,
+    pokemons: await Promise.all( pokemons )
+  });
 }

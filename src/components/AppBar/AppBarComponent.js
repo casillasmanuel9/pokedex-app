@@ -1,24 +1,20 @@
-import React from 'react';
+import React from "react";
 
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import { InputBase } from '@material-ui/core';
-import SearchIcon from '@material-ui/icons/Search'
+// Material UI
+import { AppBar, InputBase, Toolbar, Typography } from "@material-ui/core";
+import SearchIcon from "@material-ui/icons/Search";
 
-import { useStylesAppbar } from './useStylesAppbar'
+// useStyles
+import { useStylesAppbar } from "./useStylesAppbar";
 
-export const AppBarComponent = ({handleInputChange}) => {
-
+export const AppBarComponent = ({ search, handleInputChange }) => {
   const classes = useStylesAppbar();
 
   return (
     <div className={classes.root}>
       <AppBar position="static" color="secondary">
         <Toolbar>
-          <Typography variant="h4">
-            Pokedex
-          </Typography>
+          <Typography variant="h4">Pokedex</Typography>
           <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />
@@ -29,13 +25,14 @@ export const AppBarComponent = ({handleInputChange}) => {
                 root: classes.inputRoot,
                 input: classes.inputInput,
               }}
-              name='search'
+              name="search"
               onChange={handleInputChange}
-              inputProps={{ 'aria-label': 'search' }}
+              value={search}
+              inputProps={{ "aria-label": "search" }}
             />
           </div>
         </Toolbar>
       </AppBar>
     </div>
-  )
-}
+  );
+};

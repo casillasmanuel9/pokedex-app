@@ -1,6 +1,6 @@
-import React from 'react'
-import { PokemonListItem } from '../PokemonListItem/PokemonListItem'
+import React from 'react';
 import { Grid } from '@material-ui/core';
+import { PokemonListItem } from '../PokemonListItem/PokemonListItem';
 
 export const PokemonList = ({pokemons}) => {
     return (

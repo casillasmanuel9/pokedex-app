@@ -9,6 +9,5 @@ export const GridLoading = () => {
                 <CircularProgress color='secondary' />
             </Grid>
         </Grid>
-
     )
 }

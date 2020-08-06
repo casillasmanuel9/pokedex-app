@@ -7,16 +7,18 @@ import { setPoekmonActive } from '../../actions/pokemons';
 
 export const PokemonList = ({pokemons}) => {
     
-    const [open, setOpen] = useState(false);
-
+    // Dialog open state
+    const [openDialog, setOpenDialog] = useState(false);
+    // Dispatch
     const dispatch = useDispatch();
+    
 
     const handleOpenPokemon = ( pokemon ) => {
         dispatch(setPoekmonActive(pokemon));
-        setOpen(true);
+        setOpenDialog(true);
     }
 
-    const handleClose = () => setOpen(false);
+    const handleClose = () => setOpenDialog(false);
 
     return (
         <>
@@ -28,7 +30,7 @@ export const PokemonList = ({pokemons}) => {
                 }
             </Grid>
             {
-                open === true && <DialogPokemon open={open} handleClose={handleClose} />
+                openDialog === true && <DialogPokemon open={openDialog} handleClose={handleClose} />
             }
         </>
     )

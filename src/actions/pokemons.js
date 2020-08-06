@@ -3,10 +3,6 @@ import { typesPokedex } from '../types/types';
 import { getPokemonsFetch } from '../helpers/getPokemonsFetch'
 import { startLogin, finishLogin } from './ui';
 
-/**
- * MIDLEWARE
- * @param {*} offset 
- */
 export const getPokemons = (offset) => {
     return (dispatch) => {
         dispatch( startLogin() );
@@ -19,10 +15,6 @@ export const getPokemons = (offset) => {
     }
 }
 
-/**
- * ACTION
- * @param {arreglo de pokemones} pokemons 
- */
 export const setPokemons = ( pokemons ) => ({
     type: typesPokedex.setPokemons,
     payload: {
@@ -30,17 +22,12 @@ export const setPokemons = ( pokemons ) => ({
     }
 });
 
-/**
- * ACTION
- * @param {arreglo de pokemones} pokemons 
- */
 export const setCounter = ( count ) => ({
     type: typesPokedex.setCount,
     payload: {
         count
     }
 });
-
 
 export const setPoekmonActive = ( pokemon ) => ({
     type: typesPokedex.setActivePokemon,

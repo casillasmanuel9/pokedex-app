@@ -20,12 +20,12 @@ export const HomePage = () => {
     const { pokemons, count: limit } = useSelector(state => state.pokemons);
     const { loading } = useSelector(state => state.ui);
 
-    // Dispatch
+    // Dispatch react-redux
     const dispatch = useDispatch();
 
     // Custom Hooks
     const { counter, increment, decrement } = useCounter(0);
-    const [formValues, handleInputChange, reset] = useForm({
+    const [ formValues, handleInputChange, reset ] = useForm({
         search: ''
     });
     const { search } = formValues;

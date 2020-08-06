@@ -1,7 +1,7 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 
-import { HomePage } from './components/home/HomePage';
+import { HomePage } from './components/Home/HomePage';
 import { store } from './store/store';
 
 export const PokedexApp = () => {

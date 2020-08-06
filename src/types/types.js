@@ -1,4 +1,7 @@
 export const typesPokedex = {
-    setPokemon: '[pokedex] setPokemon',
-    loadingPokemons: '[pokedex] loadingPokemons'
+    setPokemons: '[pokemons] SetPokemons',
+    setCount: '[pokemons] SetCount',
+
+    startLoading: '[ui] LoadingPokemons',
+    finishLoading: '[ui] FinishLoading'
 }

@@ -5,3 +5,12 @@
 .container {
     padding-top: 20px;
 }
+
+@font-face {
+    font-family: 'PokemonSolid';
+    src: local('Pokemon Solid'), url('%PUBLIC_URL%/static/fonts/PokemonSolid.ttf') format('ttf');
+}
+
+.font-pokemon-solid {
+    font-family: 'PokemonSolid';
+}

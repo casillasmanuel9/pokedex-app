@@ -2,26 +2,36 @@ import React, { useEffect, useState } from 'react';
 // Redux
 import { useDispatch, useSelector } from 'react-redux';
 // Actiones
-import { getPokemons } from '../../actions/pokedex';
+import { getPokemons } from '../../actions/pokemons';
 // Material UI
-import { Container, Grid, CircularProgress, Typography, Button } from '@material-ui/core';
+import { Container } from '@material-ui/core';
 // Componente
-import { AppBarComponent } from '../AppBar/AppBarComponent';
+import { AppBarComponent } from './AppBar';
 import { PokemonList } from '../PokemonList/PokemonList';
 // Hooks
 import { useForm } from '../../hooks/useForm';
 import { useCounter } from '../../hooks/useCounter';
+import { GridLoading } from '../Loading/GridLoading';
+import { Controls } from './Controls';
 
 export const HomePage = () => {
 
-    const { pokemons, loading, count: limit } = useSelector(state => state.pokedex);
+    // Store
+    const { pokemons, count: limit } = useSelector(state => state.pokemons);
+    const { loading } = useSelector(state => state.ui);
+
+    // Dispatch
+    const dispatch = useDispatch();
+
+    // Custom Hooks
     const { counter, increment, decrement } = useCounter(0);
     const [formValues, handleInputChange, reset] = useForm({
         search: ''
     });
     const { search } = formValues;
+
+    // Filtro
     const [pokemonsFilter, setPokemonsFilter] = useState(pokemons);
-    const dispatch = useDispatch();
 
     useEffect(() => {
         if (pokemons) setPokemonsFilter(pokemons.filter(pokemon => pokemon.name.toLowerCase().includes(search.toLowerCase())))
@@ -47,31 +57,14 @@ export const HomePage = () => {
             <AppBarComponent search={search} handleInputChange={handleInputChange} />
             <div>
                 <Container maxWidth="md" className='container'>
-                    <Grid container spacing={3} direction='row' justify="space-between" alignItems="center">
-                        <Grid item>
-                            <Button color="secondary" onClick={handleDecrement} disabled={counter === 0 || loading === true}> BACK </Button>
-                        </Grid>
-                        <Grid item>
-                            <Typography variant="body2" color="textSecondary">
-                                {(counter > 0) ? counter / 20 + 1 : 1} / {Math.trunc(limit / 20) + 1}
-                            </Typography>
-                        </Grid>
-                        <Grid item>
-                            <Button color="secondary" onClick={handleIncrement} disabled={counter + 20 > limit || loading === true}> NEXT </Button>
-                        </Grid>
-                    </Grid>
+                    <Controls handleDecrement={handleDecrement} handleIncrement={handleIncrement} counter={counter} limit={limit} loading={loading} />
                     {
                         (pokemonsFilter && loading === false) && <PokemonList pokemons={pokemonsFilter} />
                     }
                     {
                         loading === true &&
 
-                        <Grid container spacing={3} direction='row' justify="center" alignItems="center" >
-                            <Grid item>
-                                <CircularProgress color='secondary' />
-                            </Grid>
-                        </Grid>
-
+                        <GridLoading />
                     }
                 </Container>
             </div>

@@ -12,7 +12,7 @@ export const AppBarComponent = ({ search, handleInputChange }) => {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static" color="secondary">
+      <AppBar position="static" color="primary">
         <Toolbar>
           <Typography variant="h4">Pokedex</Typography>
           <div className={classes.search}>

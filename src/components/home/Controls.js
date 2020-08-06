@@ -5,7 +5,7 @@ export const Controls = ({ handleDecrement, handleIncrement, counter, limit, loa
     return (
         <Grid container spacing={3} direction='row' justify="space-between" alignItems="center">
             <Grid item>
-                <Button color="secondary" onClick={handleDecrement} disabled={counter === 0 || loading === true}> Atras </Button>
+                <Button color="primary" onClick={handleDecrement} disabled={counter === 0 || loading === true}> Atras </Button>
             </Grid>
             <Grid item>
                 <Typography variant="body2" color="textSecondary">
@@ -13,7 +13,7 @@ export const Controls = ({ handleDecrement, handleIncrement, counter, limit, loa
                 </Typography>
             </Grid>
             <Grid item>
-                <Button color="secondary" onClick={handleIncrement} disabled={counter + 20 > limit || loading === true}> Siguiente </Button>
+                <Button color="primary" onClick={handleIncrement} disabled={counter + 20 > limit || loading === true}> Siguiente </Button>
             </Grid>
         </Grid>
     )

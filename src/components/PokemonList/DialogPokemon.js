@@ -83,7 +83,7 @@ export const DialogPokemon = ({open, handleClose}) => {
                     </Grid>
                 </DialogContent>
                 <DialogActions>
-                    <Button onClick={handleClose} color="secondary">
+                    <Button onClick={handleClose} color="primary">
                         Cerrar
                     </Button>
                 </DialogActions>

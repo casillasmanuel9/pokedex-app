@@ -6,7 +6,7 @@ export const GridLoading = () => {
     return (
         <Grid container direction='row' justify="center" >
             <Grid item>
-                <CircularProgress color='secondary' />
+                <CircularProgress color='primary' />
             </Grid>
         </Grid>
     )

@@ -1,20 +1,31 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Dialog, DialogTitle, DialogContent, Grid, Button, DialogActions, Typography } from '@material-ui/core';
+import { useSelector, useDispatch } from 'react-redux';
+import { setPoekmonDeasactivate } from '../../actions/pokemons';
 
-export const DialogPokemon = ({ open, handleClose, pokemon }) => {
+export const DialogPokemon = ({open, handleClose}) => {
+
+    const dispatch = useDispatch();
+    const { name, height, weight, types, abilities, sprites } = useSelector(state => state.pokemons.pokemonActive)
+
+    useEffect(() => {
+        return () => {
+            dispatch(setPoekmonDeasactivate());
+        }
+    }, [dispatch])
 
     return (
         <>
             <Dialog onClose={handleClose} open={open}>
                 <DialogTitle onClose={handleClose} style={{ textTransform: 'capitalize' }}>
-                    {pokemon.name}
+                    { name }
                 </DialogTitle>
                 <DialogContent>
                     <Grid style={{ margin: '0px' }} container spacing={3} alignItems='center' justify='space-evenly'>
                         <Grid item xs={4} md={4} lg={4}>
-                            <img alt={pokemon.name}
+                            <img alt={name}
                                 className='animate__animated animate__fadeInLeft animate__slow'
-                                src={(pokemon.sprites.front_default) ? pokemon.sprites.front_default : './assets/no_image.png'} />
+                                src={(sprites.front_default) ? sprites.front_default : './assets/no_image.png'} />
                         </Grid>
                         <Grid style={{ margin: '0px' }} item xs={7} md={7} lg={7} sm container direction='column' spacing={2}>
                             <Grid item container direction='row' spacing={3}>
@@ -23,7 +34,7 @@ export const DialogPokemon = ({ open, handleClose, pokemon }) => {
                                         Altura
                                     </Typography>
                                     <Typography variant="body2" color="textSecondary">
-                                        {pokemon.height} ft
+                                        {height} ft
                                     </Typography>
                                 </Grid>
                                 <Grid item>
@@ -31,7 +42,7 @@ export const DialogPokemon = ({ open, handleClose, pokemon }) => {
                                         Peso
                                     </Typography>
                                     <Typography variant="body2" color="textSecondary">
-                                        {pokemon.weight} lb
+                                        {weight} lb
                                     </Typography>
                                 </Grid>
                             </Grid>
@@ -42,8 +53,8 @@ export const DialogPokemon = ({ open, handleClose, pokemon }) => {
                                     </Typography>
                                     <Typography variant="body2" color="textSecondary" style={{ textTransform: 'capitalize' }}>
                                         {
-                                            pokemon.abilities.map(({ ability }) => (
-                                                <span key={`${pokemon.name}-${ability.name}`}>
+                                            abilities.map(({ ability }) => (
+                                                <span key={`${name}-${ability.name}`}>
                                                     {`${ability.name} `}
                                                 </span>
                                             ))
@@ -59,8 +70,8 @@ export const DialogPokemon = ({ open, handleClose, pokemon }) => {
                                     </Typography>
                                     <Typography variant="body2" color="textSecondary" style={{ textTransform: 'capitalize' }}>
                                         {
-                                            pokemon.types.map(({ type }) => (
-                                                <span key={`${pokemon.name}-${type.name}`}>
+                                            types.map(({ type }) => (
+                                                <span key={`${name}-${type.name}`}>
                                                     {`${type.name} `}
                                                 </span>
                                             ))

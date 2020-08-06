@@ -40,3 +40,15 @@ export const setCounter = ( count ) => ({
         count
     }
 });
+
+
+export const setPoekmonActive = ( pokemon ) => ({
+    type: typesPokedex.setActivePokemon,
+    payload: {
+        pokemon
+    }
+});
+
+export const setPoekmonDeasactivate = ( ) => ({
+    type: typesPokedex.setDesactivatePokemon
+});

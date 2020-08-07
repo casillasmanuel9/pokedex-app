@@ -11,7 +11,7 @@ export const PokemonListItem = ({ pokemon, handleOpenPokemon }) => {
                         <CardMedia
                             component="img"
                             alt={pokemon.name}
-                            src={(pokemon.sprites.front_default) ? pokemon.sprites.front_default : './assets/no_image.png'}
+                            src={(pokemon.sprites.front_default) ? pokemon.sprites.front_default : './assets/icons/no_image.png'}
                         />
                         <CardContent>
                             <Typography variant="subtitle1" component="h2" noWrap style={{ textTransform: 'capitalize' }}> {pokemon.name} </Typography>

@@ -6,11 +6,10 @@
     padding-top: 20px;
 }
 
-@font-face {
-    font-family: 'PokemonSolid';
-    src: local('Pokemon Solid'), url('%PUBLIC_URL%/assets/fonts/PokemonSolid.ttf') format('ttf');
+.pokeball-img {
+    margin-right: 8px;
 }
 
-.font-pokemon-solid {
-    font-family: 'PokemonSolid';
+.loading {
+    margin-top: 32px;
 }

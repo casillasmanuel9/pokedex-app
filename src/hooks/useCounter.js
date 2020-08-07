@@ -8,12 +8,12 @@ export const useCounter = ( initialState = 0 ) => {
         setCounter( initialState );
     }
 
-    const increment = () => {
-        setCounter( counter + 20 );
+    const increment = ( factor ) => {
+        setCounter( counter + factor );
     }
 
-    const decrement = () => {
-        if( counter - 20 >= 0 ) setCounter( counter - 20 );
+    const decrement = ( factor ) => {
+        if( counter - factor >= 0 ) setCounter( counter - factor );
     }
 
     return {

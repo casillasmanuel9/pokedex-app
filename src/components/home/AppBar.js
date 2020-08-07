@@ -1,7 +1,7 @@
 import React from "react";
 
 // Material UI
-import { AppBar, InputBase, Toolbar, Typography } from "@material-ui/core";
+import { AppBar, InputBase, Toolbar, Typography, Hidden } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
 
 // useStyles
@@ -14,13 +14,14 @@ export const AppBarComponent = ({ search, handleInputChange }) => {
     <div className={classes.root}>
       <AppBar position="static" color="primary">
         <Toolbar>
-          <Typography variant="h4">Pokedex</Typography>
+          <img alt='pokeball' className='pokeball-img' width='40' src='./assets/icons/PokeBallIcon.svg.png'/>
+          <Hidden smDown><Typography variant="h4">Pokédex</Typography></Hidden>
           <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />
             </div>
             <InputBase
-              placeholder="Search…"
+              placeholder="Buscar.."
               classes={{
                 root: classes.inputRoot,
                 input: classes.inputInput,
@@ -29,6 +30,7 @@ export const AppBarComponent = ({ search, handleInputChange }) => {
               onChange={handleInputChange}
               value={search}
               inputProps={{ "aria-label": "search" }}
+              autoComplete='off'
             />
           </div>
         </Toolbar>

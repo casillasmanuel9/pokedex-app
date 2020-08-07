@@ -16,7 +16,7 @@ export const DialogPokemon = ({open, handleClose}) => {
 
     return (
         <>
-            <Dialog onClose={handleClose} open={open}>
+            <Dialog onClose={handleClose} open={open} maxWidth='xs'>
                 <DialogTitle onClose={handleClose} style={{ textTransform: 'capitalize' }}>
                     { name }
                 </DialogTitle>

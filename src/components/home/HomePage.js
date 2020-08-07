@@ -45,13 +45,13 @@ export const HomePage = () => {
         dispatch(getPokemons(counter));
     }, [counter, dispatch]);
 
-    const handleIncrement = () => {
-        increment();
+    const handleIncrement = ( factor ) => {
+        increment(factor);
         reset();
     };
 
-    const handleDecrement = () => {
-        decrement();
+    const handleDecrement = ( factor ) => {
+        decrement(factor);
         reset();
     };
 

@@ -13,7 +13,7 @@ Dillinger utiliza varios proyectos de código abierto para funcionar correctamen
 
 ### Instalación
 
-Se requiere [Node.js] (https://nodejs.org/)
+Se requiere [Node.js](https://nodejs.org/)
 
 instale las dependencias e inicie el servidor.
 

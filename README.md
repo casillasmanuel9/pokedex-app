@@ -3,7 +3,7 @@
 
 ### Tecnología
 
-Dillinger utiliza varios proyectos de código abierto para funcionar correctamente:
+Pokédex utiliza varios proyectos de código abierto para funcionar correctamente:
 
 * [ReactJS + Hooks](https://reactjs.org/)
 * [PokéApi](https://pokeapi.co/)

@@ -22,3 +22,6 @@ $ cd pokedex-app
 $ npm install
 $ npm start
 ```
+
+### Demo
+* [Pokédex](https://casillasmanuel9.github.io/pokedex-app/)

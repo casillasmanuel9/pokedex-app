@@ -1,0 +1,1 @@
+{"version":3,"sources":["base/_base.scss"],"names":[],"mappings":"AAAA,EACI,QAAW,CACd,WAGG,gBAAiB,CACpB,cAGG,gBAAiB,CACpB,SAGG,eAAgB","file":"main.c43dfb12.chunk.css","sourcesContent":["* {\r\n    margin: 0px;\r\n}\r\n\r\n.container {\r\n    padding-top: 20px;\r\n}\r\n\r\n.pokeball-img {\r\n    margin-right: 8px;\r\n}\r\n\r\n.loading {\r\n    margin-top: 32px;\r\n}"]}

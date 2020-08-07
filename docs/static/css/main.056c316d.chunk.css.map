@@ -1,1 +1,0 @@
-{"version":3,"sources":["base/_base.scss"],"names":[],"mappings":"AAAA,EACI,QAAW,CACd,WAGG,gBAAiB","file":"main.056c316d.chunk.css","sourcesContent":["* {\r\n    margin: 0px;\r\n}\r\n\r\n.container {\r\n    padding-top: 20px;\r\n}"]}

@@ -6,13 +6,13 @@ import { getPokemons } from "../../actions/pokemons";
 // Material UI
 import { Container } from "@material-ui/core";
 // Componente
-import { AppBarComponent } from "./AppBar";
-import { PokemonList } from "../PokemonList/PokemonList";
+import { AppBarComponent } from "../../components/AppBar/AppBar";
+import { PokemonList } from "../../components/PokemonList/PokemonList";
 // Hooks
 import { useForm } from "../../hooks/useForm";
 import { useCounter } from "../../hooks/useCounter";
-import { GridLoading } from "../Loading/GridLoading";
-import { Controls } from "./Controls";
+import { GridLoading } from "../../components/Loading/GridLoading";
+import { Controls } from "../../components/Controls/Controls";
 
 export const HomePage = () => {
     // Store

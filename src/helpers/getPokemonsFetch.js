@@ -1,5 +1,11 @@
 import Swal from "sweetalert2";
 
+/**
+ * Funcion encargada de hacer la peticion REST y devolver el arreglo
+ * de pokemones
+ * @param {number} offset
+ * @param {nuumber} limit Valor por defecto es 20
+ */
 export const getPokemonsFetch = async (offset, limit = 20) => {
   try {
     const urlPokemons = `https://pokeapi.co/api/v2/pokemon/?offset=${offset}&limit=${limit}`;
@@ -11,7 +17,14 @@ export const getPokemonsFetch = async (offset, limit = 20) => {
       const urlPokemon = pokemon.url;
       const resPokemon = await fetch(urlPokemon);
 
-      const { name, height, weight, types, abilities, sprites } = await resPokemon.json();
+      const {
+        name,
+        height,
+        weight,
+        types,
+        abilities,
+        sprites,
+      } = await resPokemon.json();
 
       return {
         name,
@@ -19,20 +32,19 @@ export const getPokemonsFetch = async (offset, limit = 20) => {
         weight,
         types,
         abilities,
-        sprites
-      }
+        sprites,
+      };
     });
 
-    return ({
+    return {
       count,
-      pokemons: await Promise.all(pokemons)
-    });
+      pokemons: await Promise.all(pokemons),
+    };
   } catch (e) {
-    Swal.fire('Error','No se pudo obtener la información.', 'error');
-    return ({
+    Swal.fire("Error", "No se pudo obtener la información.", "error");
+    return {
       count: 0,
-      pokemons: []
-    });
+      pokemons: [],
+    };
   }
-
-}
+};

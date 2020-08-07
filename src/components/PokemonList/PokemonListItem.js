@@ -5,7 +5,7 @@ import { Grid, CardContent, Card, Typography, CardMedia, CardActionArea } from '
 export const PokemonListItem = ({ pokemon, handleOpenPokemon }) => {
     return (
         <>
-            <Grid item xs={4} md={2} lg={2} className='animate__animated animate__fadeIn animate__fast'>
+            <Grid item xs={4} md={3} lg={2} className='animate__animated animate__jackInTheBox animate__fast'>
                 <Card>
                     <CardActionArea onClick={() => handleOpenPokemon(pokemon)}>
                         <CardMedia

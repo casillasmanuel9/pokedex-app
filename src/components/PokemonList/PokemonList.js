@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Grid } from '@material-ui/core';
 import { PokemonListItem } from './PokemonListItem';
-import { DialogPokemon } from './DialogPokemon';
+import { PokemonDialog } from './PokemonDialog';
 import { useDispatch } from 'react-redux';
 import { setPoekmonActive } from '../../actions/pokemons';
 
@@ -11,7 +11,6 @@ export const PokemonList = ({pokemons}) => {
     const [openDialog, setOpenDialog] = useState(false);
     // Dispatch
     const dispatch = useDispatch();
-    
 
     const handleOpenPokemon = ( pokemon ) => {
         dispatch(setPoekmonActive(pokemon));
@@ -30,7 +29,7 @@ export const PokemonList = ({pokemons}) => {
                 }
             </Grid>
             {
-                openDialog === true && <DialogPokemon open={openDialog} handleClose={handleClose} />
+                openDialog === true && <PokemonDialog open={openDialog} handleClose={handleClose} />
             }
         </>
     )

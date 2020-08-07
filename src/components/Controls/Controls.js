@@ -6,6 +6,7 @@ import SkipPreviousRoundedIcon from '@material-ui/icons/SkipPreviousRounded';
 import NavigateNextRoundedIcon from '@material-ui/icons/NavigateNextRounded';
 import SkipNextRoundedIcon from '@material-ui/icons/SkipNextRounded';
 
+
 export const Controls = ({ handleDecrement, handleIncrement, counter, limit, loading }) => {
     return (
         <Grid container spacing={3} direction='row' justify="space-between" alignItems="center">
@@ -18,7 +19,7 @@ export const Controls = ({ handleDecrement, handleIncrement, counter, limit, loa
                 </IconButton>
             </Grid>
             <Grid item>
-                <Typography variant="body2" color="textSecondary">
+                <Typography variant="body2" color="primary">
                     {(counter > 0) ? counter / 20 + 1 : 1} / {Math.trunc(limit / 20) + 1}
                 </Typography>
             </Grid>
